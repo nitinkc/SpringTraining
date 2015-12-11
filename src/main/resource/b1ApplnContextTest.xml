@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+
+<beans>
+	<!-- Basic Bean -->
+	<bean id="fruit" class="b2.beans.appContextTester.B1Fruit" />
+
+	<!-- Setter injection using property tag -->
+	<bean id="fruitSetterInjection" class="b2.beans.appContextTester.B1Fruit">
+		<property name="name" value="Grapes" />
+		<property name="season" value="Winter" />
+	</bean>
+
+	<!-- Constructor Injection (index is the index of the constructor, SPRING 
+		ACTS SMARTLY ) BeanCreationException occurs if there is ambiguity in index.type,name -->
+	<bean id="fruitConstructorInjection" class="b2.beans.appContextTester.B1Fruit">
+		<constructor-arg value="Kiwi" index="0" type="java.lang.String" />
+		<constructor-arg value="Winter" index="1"
+			type="java.lang.String" />
+	</bean>
+
+	<!-- Object Parameter Argument Injection. A Line has two points ref is Object 
+		Parameter Injection value is primitive type Injection -->
+	<bean id="line" class="b2.beans.appContextTester.B3Line">
+		<property name="start" ref="pointA" />
+		<property name="end" ref="pointB" />
+	</bean>
+
+	<bean id="pointA" class="b2.beans.appContextTester.B2Point">
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+
+	<bean id="pointB" class="b2.beans.appContextTester.B2Point">
+		<property name="x" value="20" />
+		<property name="y" value="25" />
+	</bean>
+
+	<!-- Inner Bean Example. A line has Two points. One is declared as Inner 
+		Bean, the other one as the regular one (As previous) -->
+	<bean id="lineInnerBean" class="b2.beans.appContextTester.B3Line">
+		<property name="start" ref="pointZero" />
+		<property name="end">
+			<bean class="b2.beans.appContextTester.B2Point">
+				<property name="x" value="43" />
+				<property name="y" value="78" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="pointZero" class="b2.beans.appContextTester.B2Point">
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+
+	<!-- Example of a Collection. Sets the list of points that describes the 
+		Rectangle -->
+	
+	<bean id="rectangle" class="b2.beans.appContextTester.B4Rectangle">
+		<property name="point">
+			<list>
+				<!-- One Point is referred using ref -->
+				<ref bean="origin" />
+
+				<bean class="b2.beans.appContextTester.B2Point">
+					<property name="x" value="10" />
+					<property name="y" value="20" />
+				</bean>
+				<bean class="b2.beans.appContextTester.B2Point">
+					<property name="x" value="30" />
+					<property name="y" value="40" />
+				</bean>
+				<bean class="b2.beans.appContextTester.B2Point">
+					<property name="x" value="50" />
+					<property name="y" value="60" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="origin" class="b2.beans.appContextTester.B2Point">
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+
+</beans>
