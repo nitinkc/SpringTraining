@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+
+<beans>
+	<!-- byName refers by the variable name. Don't have to give the class name as in the previous package-->
+	<bean id="line1" class="b3.beans.autoWiring.C2Line" autowire="byName" />
+	<bean id="start1" class="b3.beans.autoWiring.C1Point">
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+	<bean id="end1" class="b3.beans.autoWiring.C1Point">
+		<property name="x" value="10" />
+		<property name="y" value="20" />
+	</bean>
+	
+	<!-- byType -->
+	<bean id="line2" class="b3.beans.autoWiring.C2Line" autowire="byType" />
+	<bean id="start2" class="b3.beans.autoWiring.C1Point">
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+	<bean id="end2" class="b3.beans.autoWiring.C1Point">
+		<property name="x" value="10" />
+		<property name="y" value="20" />
+	</bean>
+
+</beans>
