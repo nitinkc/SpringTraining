@@ -7,9 +7,13 @@ public class C2Line {
 	
 	public void draw(){
 		System.out.println("The line created");
-		System.out.println("Point A is (" + this.start.getX() +","+this.start.getY() +")");
-		System.out.println("Point B is (" + this.end.getX() +","+this.end.getY() +")");
-
+		System.out.println("Point A is (" + this.start.getX() +","
+							+ this.start.getY() +")");
+		System.out.println("Point B is (" + this.end.getX() +","
+							+ this.end.getY() +")");
+	}
+	C2Line(){
+		
 	}
 	
 	public C1Point getStart() {

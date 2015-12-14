@@ -4,6 +4,10 @@ public class C1Point {
 	private int x;
 	private int y;
 	
+	C1Point(){
+		
+	}
+	
 	public int getX() {
 		return x;
 	}

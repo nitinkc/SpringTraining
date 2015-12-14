@@ -13,15 +13,16 @@
 	</bean>
 
 	<!-- Constructor Injection (index is the index of the constructor, SPRING 
-		ACTS SMARTLY ) BeanCreationException occurs if there is ambiguity in index,type,name 
-		
-		-->
+		ACTS SMARTLY ) BeanCreationException occurs if there is ambiguity
+		 in index,type,name 
+	-->
 	<bean id="fruitConstructorInjection" class="beans.b2DIBeans.B1Fruit">
 	<!-- <constructor-arg value="Kiwi" index="0" type="java.lang.String" />
 		<constructor-arg value="Winter" index="1" type="java.lang.String" />
-		<constructor-arg value=12345 index="2" type="int" /> -->
+		<constructor-arg value=12345 index="2" type="int" /> 
+	-->
 		
-		<!-- Another way of declaring the value as a tag -->
+	<!-- Another way of declaring the value as a tag -->
 		<constructor-arg >
 			 <value>18</value> 
 		</constructor-arg>
@@ -50,7 +51,8 @@
 	</bean>
 
 	<!-- Inner Bean Example. A line has Two points. One is declared as Inner 
-		Bean, the other one as the regular one (As previous) -->
+		Bean, the other one as the regular one (As previous) 
+	-->
 	<bean id="lineInnerBean" class="beans.b2DIBeans.B3Line">
 		<property name="start" ref="pointZero" />
 		<property name="end">
@@ -99,7 +101,8 @@
 	<!-- Example Demonstrating Beans Scope: The default one is Singleton -->	
 	<bean id="scopeSingleton" class="beans.b6Scopes.Greetings"> </bean>
 	<!-- Demonstration of Prototyping Scopes -->
-	<bean id="scopePrototype" class="beans.b6Scopes.Greetings" scope="prototype"> </bean>
+	<bean id="scopePrototype" class="beans.b6Scopes.Greetings" scope="prototype">
+	</bean>
 	
 	<!-- Date type Injection using the Factory Bean -->
 	<!-- <bean id="dateFormat" class="beans.b6Scopes.Greetings"> 
