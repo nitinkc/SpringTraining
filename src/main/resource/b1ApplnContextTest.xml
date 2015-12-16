@@ -124,6 +124,7 @@
 		<property name="country" value="India"></property>
 	</bean>
 	
+		<!-- Class name can be avoided -->
 	<bean id="childCustomerBean" parent="parentCustomerBean">
 		<property name="id" value="12345" />
 		<property name="name" value="Nitin" />
@@ -131,4 +132,36 @@
 		<!-- <property name="country" value="USA" /> -->
 	</bean>
 	
+	<!-- Defining the Abstract Bean -->
+	<bean id="abstractPersonBean" class="beans.b7Inheritance.PersonAbstract" abstract="true">
+	</bean>
+	
+	<bean id="abstractPersonBeanChild" parent="abstractPersonBean">
+		<property name="country" value="India"></property>
+		<property name="name" value="Sandeep"></property>
+	</bean>
+	
+	<!-- @RequiredAnnotation -->
+	<bean id="circle" class="beans.b9Annotation.Circle">
+		<property name="center" ref="centerPoint" />
+	</bean>
+	<bean id="centerPoint" class="beans.b9Annotation.Point">
+		<property name="x" value="123" />
+		<property name="y" value="456" />
+	</bean>
+	
+	<!-- Autowired Annotation -->
+	<bean id="lineAnno" class="beans.b9Annotation.Line" />
+	
+	<bean id="point1" class="beans.b9Annotation.Point">
+		<property name="x" value="10" />
+		<property name="y" value="20" />
+	</bean>
+	
+	<bean id="point2" class="beans.b9Annotation.Point">
+		<property name="x" value="100" />
+		<property name="y" value="200" />
+	</bean>
+	
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
 </beans>

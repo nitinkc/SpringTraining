@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import beans.b7Inheritance.Customer;
+import beans.b7Inheritance.PersonAbstract;
 
 public class T11InheritanceTest {
 
@@ -15,5 +16,12 @@ public class T11InheritanceTest {
 		
 		// The Country is set India in the Parent Class and is overridden to USA in the Child Class
 		System.out.println(c);
+		
+		// Calling the "abstract=true" bean. There should be no property set
+		// else there will be exception - BeanIsAbstractException
+		// PersonAbstract pa = (PersonAbstract)context.getBean("abstractPersonBean");
+
+		PersonAbstract pa1 = (PersonAbstract)context.getBean("abstractPersonBeanChild");
+		System.out.println(pa1);
 	}
 }
